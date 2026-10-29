@@ -10,3 +10,17 @@ pnpm dev               # http://localhost:8787
 ```
 
 Working on it with an agent: start at [AGENTS.md](AGENTS.md).
+
+## Review preview
+
+Capture the self-contained HTML for the sample night with:
+
+```sh
+pnpm preview:capture -- /tmp/rig-preview/index.html
+```
+
+The destination must be outside this repository. The command renders the Hono route directly;
+the page includes its layout and stylesheet and has no client JavaScript. The manual-only
+workflow in `.github/workflows/preview-pages.yml` builds the same file into a GitHub Pages
+artifact. Its `lane_marker` input is optional: pass the marker for the review copy, then leave it
+blank when replacing that page after review. The preview itself is never committed to this repo.
